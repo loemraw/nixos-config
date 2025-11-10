@@ -82,6 +82,15 @@
     lazygit
   ];
 
+  # Shell aliases
+  programs.bash = {
+    enable = true;
+    shellAliases = {
+      lg = "lazygit";
+      nz = "sudoedit /etc/nixos/home.nix";
+    };
+  };
+
   # basic configuration of git
   programs.git = {
     enable = true;
