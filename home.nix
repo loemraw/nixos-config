@@ -78,6 +78,8 @@
     # Fonts
     nerd-fonts.jetbrains-mono
 
+    # lazygit
+    lazygit
   ];
 
   # basic configuration of git
@@ -103,6 +105,7 @@
       "github.com" = {
         identityFile = "~/.ssh/github";
         identitiesOnly = true;
+        extraOptions = { IPQoS = "throughput"; };
       };
     };
   };
