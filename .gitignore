@@ -1,0 +1,17 @@
+# NixOS build results
+result
+result-*
+
+# Temporary files
+*.tmp
+*~
+
+# Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
