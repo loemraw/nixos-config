@@ -18,10 +18,8 @@
         center-focused-column = "never";
       };
 
-      spawn-at-startup = [
-        { command = ["firefox"]; }
-        { command = ["conky"]; }
-      ];
+      spawn-at-startup =
+        [ { command = [ "firefox" ]; } { command = [ "swayosd-server" ]; } ];
 
       binds = {
         "Mod+Space".action.spawn = [ "fuzzel" ];
@@ -48,6 +46,14 @@
         # Monitors
         "Mod+Ctrl+Left".action.focus-monitor-left = [ ];
         "Mod+Ctrl+Right".action.focus-monitor-right = [ ];
+
+        # Audio controls (hardware keys)
+        "XF86AudioRaiseVolume".action.spawn =
+          [ "swayosd-client" "--output-volume" "raise" ];
+        "XF86AudioLowerVolume".action.spawn =
+          [ "swayosd-client" "--output-volume" "lower" ];
+        "XF86AudioMute".action.spawn =
+          [ "swayosd-client" "--output-volume" "mute-toggle" ];
 
         # Exit niri
         "Mod+Shift+E".action.quit = [ ];
