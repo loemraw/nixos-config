@@ -84,6 +84,9 @@
     # audio
     pavucontrol
     swayosd
+    
+    # monitor control
+    ddcutil
   ];
 
   # Shell aliases

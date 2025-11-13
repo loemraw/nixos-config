@@ -55,6 +55,18 @@
         "XF86AudioMute".action.spawn =
           [ "swayosd-client" "--output-volume" "mute-toggle" ];
 
+        # Brightness controls (all detected monitors)
+        "XF86Launch6".action.spawn = [
+          "sh"
+          "-c"
+          "for bus in $(ddcutil detect --brief | awk '/I2C bus:/{print $3}' | sed 's|/dev/i2c-||'); do ddcutil setvcp 10 + 10 --bus $bus --sleep-multiplier 0.1 --noverify --disable-dynamic-sleep --skip-ddc-checks & done; wait && swayosd-client --brightness raise"
+        ];
+        "XF86Launch5".action.spawn = [
+          "sh"
+          "-c"
+          "for bus in $(ddcutil detect --brief | awk '/I2C bus:/{print $3}' | sed 's|/dev/i2c-||'); do ddcutil setvcp 10 - 10 --bus $bus --sleep-multiplier 0.1 --noverify --disable-dynamic-sleep --skip-ddc-checks & done; wait && swayosd-client --brightness lower"
+        ];
+
         # Exit niri
         "Mod+Shift+E".action.quit = [ ];
       };

@@ -11,6 +11,7 @@
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+  boot.kernelModules = [ "i2c-dev" ];
 
   networking.hostName = "leomar-pc";
   networking.networkmanager.enable = true;
@@ -52,9 +53,16 @@
     pulse.enable = true;
   };
 
+  # ddcutil udev rules for monitor brightness control
+  services.udev.extraRules = ''
+    KERNEL=="i2c-[0-9]*", GROUP="i2c", MODE="0660"
+  '';
+
+  users.groups.i2c = { };
+
   users.users.leomar = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "networkmanager" ];
+    extraGroups = [ "wheel" "networkmanager" "i2c" ];
     initialPassword = "abc123";
   };
 
