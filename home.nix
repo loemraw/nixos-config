@@ -80,6 +80,9 @@
 
     # lazygit
     lazygit
+
+    # audio
+    pavucontrol
   ];
 
   # Shell aliases
