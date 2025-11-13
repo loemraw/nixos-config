@@ -83,6 +83,7 @@
 
     # audio
     pavucontrol
+    swayosd
   ];
 
   # Shell aliases
