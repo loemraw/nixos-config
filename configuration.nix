@@ -67,6 +67,9 @@
     alacritty
     fuzzel
     tmux
+
+    # audio
+    pulseaudio
   ];
   environment.variables.EDITOR = "nvim";
 
