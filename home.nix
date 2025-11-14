@@ -87,6 +87,9 @@
     
     # monitor control
     ddcutil
+
+    # latex alternative
+    typst
   ];
 
   # Shell aliases
